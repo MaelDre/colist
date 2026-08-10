@@ -1,0 +1,155 @@
+.home,
+.list-page,
+.status-message {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.home {
+  text-align: center;
+}
+
+.home .error {
+  color: #e6194b;
+}
+
+.status-message {
+  text-align: center;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.offline-badge {
+  font-size: 0.85em;
+  color: #f58231;
+  margin-right: auto;
+}
+
+.presence-bar {
+  display: flex;
+  gap: 4px;
+  margin-right: auto;
+}
+
+.presence-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+  background-color: transparent;
+  border-color: #e6194b;
+  color: #e6194b;
+}
+
+.delete-confirm {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9em;
+}
+
+.delete-confirm button.danger {
+  background-color: #e6194b;
+  color: white;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.empty-state {
+  opacity: 0.6;
+  padding: 1rem 0;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  transition: background-color 4s ease, box-shadow 4s ease;
+}
+
+.item-row.highlighted {
+  background-color: color-mix(in srgb, var(--highlight-color) 20%, transparent);
+  box-shadow: inset 4px 0 0 0 var(--highlight-color);
+  transition: none;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-description {
+  font-size: 0.9em;
+  opacity: 0.75;
+}
+
+.remove-button {
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  line-height: 1;
+  padding: 0.3em 0.5em;
+}
+
+.item-row.editing form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.item-row.editing input,
+.item-row.editing textarea {
+  width: 100%;
+}
+
+.item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-item-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.add-item-form input {
+  flex: 1;
+  min-width: 140px;
+}
+
+@media (prefers-color-scheme: light) {
+  .item-row {
+    border-color: #ddd;
+  }
+}

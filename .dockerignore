@@ -1,0 +1,18 @@
+# Backend
+backend/.venv
+backend/**/__pycache__
+backend/**/*.pyc
+backend/*.db
+
+# Frontend
+frontend/node_modules
+frontend/dist
+
+# VCS / editor / project tooling, not needed in the image
+.git
+.gitignore
+.claude
+.unotes
+openspec
+README.md
+frontend/README.md
