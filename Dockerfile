@@ -61,5 +61,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 # is in-memory and per-process - see design.md "Single-instance operation".
 # --port reads $PORT when the platform assigns one (e.g. Railway), falling
 # back to 8000 for `docker run` / VPS use where no PORT is set.
-CMD uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-8000}" --workers 1 \
+CMD exec uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-8000}" --workers 1 \
     --proxy-headers --forwarded-allow-ips "$COLIST_FORWARDED_ALLOW_IPS"
