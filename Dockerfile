@@ -37,7 +37,8 @@ ENV COLIST_DATABASE_URL=sqlite:////data/colist.db \
 # explicitly at deploy time if needed.
 
 RUN mkdir -p /data && chown -R colist:colist /data /app
-VOLUME ["/data"]
+# line below is commented in order to make the deployment on railway working
+# VOLUME ["/data"]
 
 USER colist
 
