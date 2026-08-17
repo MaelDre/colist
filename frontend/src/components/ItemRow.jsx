@@ -4,12 +4,10 @@ import { editItem, removeItem } from "../api";
 export default function ItemRow({ listId, item, highlighted }) {
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(item.name);
-  const [description, setDescription] = useState(item.description);
   const [saving, setSaving] = useState(false);
 
   const startEdit = () => {
     setName(item.name);
-    setDescription(item.description);
     setEditing(true);
   };
 
@@ -18,7 +16,7 @@ export default function ItemRow({ listId, item, highlighted }) {
     if (!name.trim()) return;
     setSaving(true);
     try {
-      await editItem(listId, item.id, { name: name.trim(), description });
+      await editItem(listId, item.id, { name: name.trim() });
       setEditing(false);
     } finally {
       setSaving(false);
@@ -34,7 +32,6 @@ export default function ItemRow({ listId, item, highlighted }) {
       <li className="item-row editing">
         <form onSubmit={save}>
           <input value={name} onChange={(e) => setName(e.target.value)} autoFocus />
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
           <div className="item-actions">
             <button type="submit" disabled={saving || !name.trim()}>
               Save
@@ -55,7 +52,6 @@ export default function ItemRow({ listId, item, highlighted }) {
     >
       <div className="item-content" onClick={startEdit}>
         <span className="item-name">{item.name}</span>
-        {item.description && <span className="item-description">{item.description}</span>}
       </div>
       <button className="remove-button" onClick={remove} aria-label={`Remove ${item.name}`}>
         ×

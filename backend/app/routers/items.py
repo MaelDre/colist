@@ -34,7 +34,6 @@ async def add_item(
     item = models.Item(
         list_id=list_id,
         name=payload.name,
-        description=payload.description,
         last_edited_by_color=color,
     )
     db.add(item)
@@ -65,8 +64,6 @@ async def edit_item(
 
     if payload.name is not None:
         item.name = payload.name
-    if payload.description is not None:
-        item.description = payload.description
     item.last_edited_by_color = color
     item.last_edited_at = datetime.now(timezone.utc)
 

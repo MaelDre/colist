@@ -32,7 +32,6 @@ class Item(Base):
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
     list_id: Mapped[str] = mapped_column(ForeignKey("lists.id"), index=True)
     name: Mapped[str] = mapped_column(String(200))
-    description: Mapped[str] = mapped_column(String(2000), default="")
     last_edited_by_color: Mapped[str] = mapped_column(String(20))
     last_edited_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
